@@ -244,7 +244,7 @@ router.post('/sync', optionalAuth, (req, res) => {
     const mergeItem = db.prepare(`
       INSERT INTO cart_items (cart_id, product_id, quantity)
       VALUES (?, ?, ?)
-      ON CONFLICT(cart_id, product_id) DO UPDATE SET quantity = quantity + excluded.quantity
+      ON CONFLICT(cart_id, product_id) DO UPDATE SET quantity = cart_items.quantity + excluded.quantity
     `);
 
     guestItems.forEach(item => {

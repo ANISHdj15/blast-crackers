@@ -100,6 +100,7 @@ async function runTests() {
     body: JSON.stringify({ session_id: sessionId })
   });
   const syncData = await syncRes.json();
+  if (!syncData.success) console.error('SYNC ERROR DETAILS:', syncData);
   assert.strictEqual(syncData.success, true);
 
   const authCartRes = await fetch(`${baseUrl}/api/cart`, {

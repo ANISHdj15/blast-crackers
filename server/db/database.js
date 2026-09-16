@@ -1,7 +1,19 @@
-const Database = require('better-sqlite3');
+require('dotenv').config();
 const path = require('path');
 const fs = require('fs');
 
+const databaseUrl = process.env.DATABASE_URL || process.env.SUPABASE_DB_URL;
+const isPostgres = databaseUrl && (databaseUrl.startsWith('postgres://') || databaseUrl.startsWith('postgresql://'));
+
+if (isPostgres) {
+  console.log('⚡ Initializing Cloud PostgreSQL database connection (Supabase / Render)...');
+  const { createPostgresBridge } = require('./postgresBridge');
+  const pgDb = createPostgresBridge(databaseUrl);
+  module.exports = pgDb;
+  return;
+}
+
+const Database = require('better-sqlite3');
 const dbDir = path.resolve(__dirname, '../../data');
 if (!fs.existsSync(dbDir)) {
   fs.mkdirSync(dbDir, { recursive: true });
