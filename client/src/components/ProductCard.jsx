@@ -74,6 +74,10 @@ export const ProductCard = ({ product, onSelectProduct }) => {
           alt={product.name}
           className="card-img"
           loading="lazy"
+          onError={(e) => {
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = 'https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=800&q=80';
+          }}
         />
 
         {/* Badges on Top Left */}

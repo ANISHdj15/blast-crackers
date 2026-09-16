@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { 
   Sparkles, 
   Search, 
@@ -243,8 +244,8 @@ export const Header = ({
         </div>
       )}
 
-      {/* Mobile Drawer Menu & Backdrop */}
-      {mobileMenuOpen && (
+      {/* Mobile Drawer Menu & Backdrop (Rendered into document.body via Portal to prevent sticky header clipping) */}
+      {mobileMenuOpen && typeof document !== 'undefined' && createPortal(
         <>
           <div 
             className="mobile-nav-backdrop"
@@ -368,7 +369,8 @@ export const Header = ({
               </div>
             </div>
           </div>
-        </>
+        </>,
+        document.body
       )}
     </header>
   );

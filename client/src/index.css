@@ -1915,13 +1915,16 @@ img {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Mobile Nav Drawer Backdrop & Panel */
+/* /* Mobile Nav Drawer Backdrop & Panel */
 .mobile-nav-backdrop {
   position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
   background: rgba(15, 23, 42, 0.7);
   backdrop-filter: blur(4px);
-  z-index: 999;
+  z-index: 9999;
   animation: fadeIn 0.2s ease-out;
 }
 
@@ -1931,13 +1934,22 @@ img {
   right: 0;
   bottom: 0;
   width: 85%;
-  max-width: 380px;
+  max-width: 360px;
+  height: 100vh;
+  height: 100dvh;
   background: #ffffff;
-  z-index: 1000;
+  z-index: 10000;
   display: flex;
   flex-direction: column;
-  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.2);
+  box-shadow: -6px 0 30px rgba(0, 0, 0, 0.25);
   animation: slideInRight 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 1024px) {
+  .mobile-nav-backdrop,
+  .mobile-nav-drawer {
+    display: none !important;
+  }
 }
 
 .mobile-nav-header {
