@@ -1,0 +1,18 @@
+{
+  "name": "Blast Crackers Sivakasi",
+  "short_name": "Blast Crackers",
+  "description": "Authentic Sivakasi Fireworks & Green Crackers Factory Direct Online Store",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#064e3b",
+  "theme_color": "#064e3b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

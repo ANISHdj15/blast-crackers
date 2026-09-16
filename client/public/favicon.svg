@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="48" fill="#064e3b" stroke="#f59e0b" stroke-width="4" />
+  <!-- Sparkler / Rocket Icon -->
+  <path d="M50 20 L58 42 L80 44 L63 59 L68 80 L50 67 L32 80 L37 59 L20 44 L42 42 Z" fill="#f59e0b" stroke="#fef3c7" stroke-width="2" />
+  <circle cx="50" cy="50" r="6" fill="#dc2626" />
+</svg>

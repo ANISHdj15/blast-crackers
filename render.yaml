@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: blast-crackers-api
+    runtime: node
+    plan: free
+    region: singapore
+    branch: main
+    buildCommand: npm install
+    startCommand: npm run migrate && npm run seed && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
+      - key: SHOP_UPI_ID
+        value: YOUR_UPI_ID@upi
+      - key: SHOP_NAME
+        value: Blast Crackers Sivakasi
+      - key: REQUIRE_UTR
+        value: "true"
+      - key: PAYMENT_EXPIRY_MINUTES
+        value: "15"
